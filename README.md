@@ -2,6 +2,7 @@
 Based on jupyter/datascience-notebook, Docker image, this adds various packages for back testing and trading.
 
 To build the image:
+
     docker build -t trading-notebook-image --pull --no-cache .
 
 To run an instance:

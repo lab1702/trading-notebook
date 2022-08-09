@@ -1,26 +1,31 @@
+
 FROM jupyter/datascience-notebook
 LABEL maintainer="lab1702"
 
 
 RUN mamba install -y \
-    theme-darcula \
     isort \
     black \
     jupyterlab_code_formatter \
+    theme-darcula \
+    mplfinance \
+    plotly \
     yfinance \
+    pandas_market_calendars \
     ta-lib \
-    ta \
     pandas-ta \
+    ta \
     finta \
-    r-quantmod
+    r-styler \
+    r-plotly \
+    r-quantmod && \
+    mamba clean --all -f -y
 
 
 RUN pip install \
     ccxt \
     backtrader \
-    backtesting
-
-
-RUN mamba clean --all -f -y
-RUN pip cache purge
+    backtesting \
+    pyalgotrade && \
+    pip cache purge
 

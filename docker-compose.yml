@@ -1,0 +1,29 @@
+---
+version: '3'
+services:
+  trading-notebook:
+    image: trading-notebook-image
+    build:
+      context: .
+      dockerfile: ./Dockerfile.trading-notebook
+    restart: unless-stopped
+    container_name: trading-notebook
+    volumes:
+      - "~/MEGAsync/R/Rcode:/home/jovyan/Rcode"
+      - "~/MEGAsync/PythonProjects:/home/jovyan/work"
+    ports:
+      - "127.0.0.1:8888:8888"
+    command: start.sh jupyter lab --LabApp.token=''
+  rstudio:
+    image: rstudio-image
+    build:
+      context: .
+      dockerfile: ./Dockerfile.rstudio
+    restart: unless-stopped
+    container_name: rstudio
+    volumes:
+      - "~/MEGAsync/R/Rcode:/home/rstudio/Rcode"
+    ports:
+      - "127.0.0.1:8787:8787"
+    environment:
+      - DISABLE_AUTH=true

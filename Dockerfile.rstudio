@@ -1,0 +1,25 @@
+FROM rocker/geospatial
+LABEL maintainer="lab1702"
+
+
+RUN /usr/local/lib/R/site-library/littler/examples/update.r -n -1
+
+
+RUN install2.r -e -s -n -1 \
+    plotly \
+    caret \
+    randomForest \
+    xgboost \
+    forecast \
+    prophet \
+    quantmod \
+    PerformanceAnalytics \
+    tidyquant \
+    ichimoku \
+    binancer \
+    shinycssloaders \
+    gt \
+    gtExtras \
+    gtsummary \
+    blastula \
+    styler

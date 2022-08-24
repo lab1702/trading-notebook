@@ -1,14 +1,17 @@
 # trading-notebook
-Based on jupyter/datascience-notebook, Docker image, this adds various packages for back testing and trading.
+Based on rocker/geospatial and jupyter/datascience-notebook Docker images, this adds various packages for back testing and trading.
 
-To build the image:
+Before using, edit the docker-compose.yml file to set file paths. You may also want to enable security, the default setup uses no
+passwords, it just limits access to localhost.
 
-    docker build -t trading-notebook-image --pull --no-cache .
+To build the images:
 
-To run an instance:
+    sh build_images.sh
 
-    docker run --rm -ti --name trading-notebook -p 127.0.0.1:8888:8888 trading-notebook-image
+To start the instances:
 
-Use -v to mount a local directory where you store your notebooks:
+    sh run_apps.sh
 
-    docker run --rm -ti --name trading-notebook -v /home/myname/mynotebooks:/home/jovyan/work -p 127.0.0.1:8888:8888 trading-notebook-image
+To stop the instances:
+
+    sh stop_apps.sh

@@ -7,13 +7,12 @@ RUN mamba install -y \
     isort \
     black \
     jupyterlab_code_formatter \
+    theme-darcula \
     siuba \
     plotnine \
-    jupyter-dash \
-    theme-darcula \
-    mplfinance \
     plotly \
     yfinance \
+    mplfinance \
     pandas_market_calendars \
     ta-lib \
     pandas-ta \
